@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -20,10 +21,12 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="/tradingView" className={styles.card}>
-            <h3>Trading View Charts &rarr;</h3>
-            <p>Lightweight Financial Charting</p>
-          </a>
+          <Link href="/tradingView">
+            <div className={styles.card}>
+              <h3>Trading View Charts &rarr;</h3>
+              <p>Lightweight Financial Charting</p>
+            </div>
+          </Link>
         </div>
       </main>
 
