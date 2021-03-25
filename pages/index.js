@@ -27,6 +27,13 @@ export default function Home() {
               <p>Lightweight Financial Charting</p>
             </div>
           </Link>
+
+          <Link href="/highChart">
+            <div className={styles.card}>
+              <h3>High Charts &rarr;</h3>
+              <p>Make your data come alive</p>
+            </div>
+          </Link>
         </div>
       </main>
 
