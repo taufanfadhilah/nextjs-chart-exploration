@@ -355,6 +355,14 @@ const ThreeLineLegend = () => {
     <div>
       <h3>Three line legend</h3>
       <div ref={chartRef} id="chart" />
+      <style jsx>{`
+        #chart {
+          font-family: "Trebuchet MS", Roboto, Ubuntu, sans-serif;
+          background: #f9fafb;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+      `}</style>
     </div>
   );
 };
