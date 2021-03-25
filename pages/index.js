@@ -51,6 +51,13 @@ export default function Home() {
               </p>
             </div>
           </Link>
+
+          <Link href="/apexCharts">
+            <div className={styles.card}>
+              <h3>Apex Charts &rarr;</h3>
+              <p>Modern & Interactive Open-source Charts</p>
+            </div>
+          </Link>
         </div>
       </main>
 
