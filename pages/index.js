@@ -34,6 +34,13 @@ export default function Home() {
               <p>Make your data come alive</p>
             </div>
           </Link>
+
+          <Link href="/canvasJs">
+            <div className={styles.card}>
+              <h3>Canvas Js &rarr;</h3>
+              <p>Beautiful HTML5 Charts & Graphs</p>
+            </div>
+          </Link>
         </div>
       </main>
 
