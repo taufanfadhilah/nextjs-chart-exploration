@@ -58,6 +58,13 @@ export default function Home() {
               <p>Modern & Interactive Open-source Charts</p>
             </div>
           </Link>
+
+          <Link href="/amChart">
+            <div className={styles.card}>
+              <h3>AMChart &rarr;</h3>
+              <p>Programming library for all your data visualization needs.</p>
+            </div>
+          </Link>
         </div>
       </main>
 
