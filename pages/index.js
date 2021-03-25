@@ -41,6 +41,16 @@ export default function Home() {
               <p>Beautiful HTML5 Charts & Graphs</p>
             </div>
           </Link>
+
+          <Link href="/anyChart">
+            <div className={styles.card}>
+              <h3>Any Chart &rarr;</h3>
+              <p>
+                High-performance JavaScript stock, financial, and other
+                time-series charts for web, desktop, and mobile apps
+              </p>
+            </div>
+          </Link>
         </div>
       </main>
 

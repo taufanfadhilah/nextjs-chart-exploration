@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "anychart": "^8.9.0",
+    "anychart-react": "^1.4.1",
     "bootstrap": "^5.0.0-beta3",
     "highcharts": "^9.0.1",
     "highcharts-react-official": "^3.0.0",
