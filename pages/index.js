@@ -1,25 +1,17 @@
-import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Chart <a href="/">Exploration!</a>
         </h1>
-
         <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
+          Exploring charts that can be used in
+          <code className={styles.code}>Next.js</code>
         </p>
-
         <div className={styles.grid}>
           <Link href="/tradingView">
             <div className={styles.card}>
@@ -66,6 +58,11 @@ export default function Home() {
             </div>
           </Link>
         </div>
+        <p className={styles.description}>
+          <a href="https://github.com/taufanfadhilah/nextjs-chart-exploration#learn-more">
+            Get the source code here!
+          </a>
+        </p>
       </main>
 
       <footer className={styles.footer}>

@@ -16,6 +16,18 @@ const Index = () => {
           <div className="col-md-12 text-center">
             <h1>Any Chart</h1>
             <hr />
+          </div>
+          <div className="col-md-3">
+            <ul>
+              <li>
+                <span className="badge bg-success">Readable Documentation</span>
+              </li>
+              <li>
+                <span className="badge bg-danger">Running in client side</span>
+              </li>
+            </ul>
+          </div>
+          <div className="col-md-9">
             <Stock />
           </div>
         </div>

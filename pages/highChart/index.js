@@ -56,8 +56,32 @@ const Index = () => {
     <div className="container mt-5">
       <div className="row">
         <div className="col-md-12 text-center">
-          <h1>High Charts</h1>
+          <a href="https://www.highcharts.com/" target="_blank">
+            <h1>High Charts</h1>
+          </a>
+          <span className="badge bg-success">Highly Recommed</span>
           <hr />
+        </div>
+        <div className="col-md-3">
+          <ul>
+            <li>
+              <span className="badge bg-success">Have a React Wrapper</span>
+            </li>
+            <li>
+              <span className="badge bg-success">Used in Market Trends</span>
+            </li>
+            <li>
+              <span className="badge bg-success">Have many kind of charts</span>
+            </li>
+            <li>
+              <span className="badge bg-success">Good Documentation</span>
+            </li>
+            <li>
+              <span className="badge bg-success">Easy to Customize</span>
+            </li>
+          </ul>
+        </div>
+        <div className="col-md-9">
           <h3>Single Line Series</h3>
           <HighchartsReact
             highcharts={Highcharts}
