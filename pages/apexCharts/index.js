@@ -1,10 +1,33 @@
 import dynamic from "next/dynamic";
 const CandleStick = dynamic(() =>
-  import("../../components/ApexCharts/CandleStick")
+  import("../../components/ApexCharts/CandleStick"),
+  { ssr: false }
 );
-const Line = dynamic(() => import("../../components/ApexCharts/Line"));
+const Line = dynamic(() => 
+  import("../../components/ApexCharts/Line"),
+  { ssr: false }
+);
 
-const Index = () => {
+// This gets called on every request
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`https://any-api.com:8443/http://xkcd.com/info.0.json`)
+  const data = await res.json()
+  // server side data fetch example
+  const series = [
+    {
+      data: [
+        [1538856000000, 6593.34, 6600, 6582.63, 6600],
+        [1538856900000, 6595.16, 6604.76, 6590.73, 6593.86],
+      ],
+    },
+  ];
+  console.log("series server side")
+  // Pass data to the page via props
+  return { props: { data: series } }
+}
+
+const Index = ({data}) => {
   return (
     <div className="container mt-5">
       <div className="row">
@@ -39,7 +62,7 @@ const Index = () => {
           </ul>
         </div>
         <div className="col-md-9">
-          <CandleStick />
+          <CandleStick data={data}/>
           <hr />
           <Line />
         </div>

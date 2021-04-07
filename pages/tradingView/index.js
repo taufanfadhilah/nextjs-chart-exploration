@@ -1,10 +1,22 @@
 import dynamic from "next/dynamic";
 const CustomLocale = dynamic(() =>
-  import("../../components/TradingViewCharts/CustomLocale")
+  import("../../components/TradingViewCharts/CustomLocale"),
+  { ssr: false }
 );
 const ThreeLineLegend = dynamic(() =>
-  import("../../components/TradingViewCharts/ThreeLineLegend")
+  import("../../components/TradingViewCharts/ThreeLineLegend"),
+  { ssr: false }
 );
+const CandleStick = dynamic(() =>
+  import("../../components/TradingViewCharts/CandleStick"),
+  { ssr: false }
+);
+const EmbedChart = dynamic(() =>
+  import("../../components/TradingViewCharts/EmbedChart"),
+  { ssr: false }
+);
+
+
 
 const Index = () => {
   return (
@@ -37,6 +49,10 @@ const Index = () => {
           <CustomLocale />
           <hr />
           <ThreeLineLegend />
+          <hr />
+          <CandleStick />
+          <hr />
+          <EmbedChart />
         </div>
       </div>
     </div>
