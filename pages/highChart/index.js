@@ -1,69 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Highcharts from "highcharts/highstock";
-import HighchartsReact from "highcharts-react-official";
 
+import LineChart from "../../components/Highchart/LineChart"
+import VerticalBarChart from "../../components/Highchart/VerticalBarChart"
+import MiniChart from "../../components/Highchart/MiniChart"
+import StockChart from "../../components/Highchart/StockChart"
+import CandleStickStockChart from "../../components/Highchart/CandleStickStockChart"
 
 import dataSingleLine from "../../data/highCharts/singleLine.json";
 import dataCandleStick from "../../data/highCharts/candleStick.json";
 
-const Index = () => {
-  const optionsSingleLine = {
-    title: {
-      text: 'EI Stock'
-    },
-    chart: {
-      type: 'spline',
-      backgroundColor:'white',
-      plotBorderWidth: null,
-      plotShadow: false,
-      borderWidth: 0,
-      plotBorderWidth: 0,
-    },
-    legend: {
-      enabled: false
-    },
-    tooltip: {
-      borderWidth: 0,
-      backgroundColor: "white",
-      shadow: true,
-      formatter: function () {
-        return `<div style="text-align: center">
-        <div>${new Date(this.x)}</div><br/>
-        <div>${this.y}</div></div>`;
-      }
-    },
-    xAxis: {
-      type: 'datetime',
-      //tickInterval: 2592000000*2,
-      // tickWidth: 1,
-      gridLineWidth: 0,
-      labels: {
-          //rotation: -45,
-          align: 'center',
-          formatter: function () {
-              return Highcharts.dateFormat("%b",this.value)
-          }
-      }
-    },
-    yAxis: {
-        title: {
-            text: ''
-        },
-        opposite: true,
-        tickInterval: 15
-    },
-    series: [{
-        name: 'AAPL',
-        data: dataSingleLine,
-        color: {
-          linearGradient: [0, 0, 0, 400],
-          stops: [
-            [0, "#00b072"],
-            [1, "#fcc203"]
-          ]
-        },
-    }]
-  };
+
+const Index = ({}) => {
 
   const optionsCandleStick = {
     rangeSelector: {
@@ -92,103 +39,6 @@ const Index = () => {
     ],
   };
 
-  const VerticalBarChart = {
-    chart: {
-      type: 'bar',
-    },
-    credits: {
-      enabled: false
-    },
-    yAxis: {
-      allowDecimals: false,
-      title: {
-          text: null
-      },
-      min: -10,
-      max: 10,
-    },
-    xAxis: {
-        categories: ['GN1', 'LS1', 'GN2', 'LS2', 'GN3', 'LS3'],
-    },
-    legend: {
-        enabled: false
-    },
-    series: [{
-        name: 'green',
-        color:'green',
-        data: [5, 6, 4, 2, 1],
-        borderRadius: 1
-      },{
-        name: 'red',
-        color:'red',
-        data: [-3, -6, -1, -2, -6],
-        borderRadius: 1
-      }]
-  }
-
-  const optionsMiniChart = {
-    chart: {
-      type: 'spline',
-      backgroundColor:'white',
-      plotBorderWidth: null,
-      marginTop: 0,
-      marginBottom: 0,
-      marginLeft:0,
-      plotShadow: false,
-      borderWidth: 0,
-      plotBorderWidth: 0,
-      marginRight:0,
-      width: 140,
-      height: 85
-    },
-    tooltip: {
-        enabled: false
-    },
-    title: {
-        text: ''
-    },
-    xAxis: {
-        enabled:false,
-        showEmpty:false,
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: ''
-        },
-        showEmpty:false,
-        enabled:false
-    },
-    credits: {
-        enabled: false
-    },
-    legend: {
-        enabled:false
-    },
-    plotOptions: {
-        line:{
-            lineWidth:1.5,
-        },
-        showInLegend: false,
-        tooltip: {}
-    },
-    series: [{
-            marker: {
-                enabled: false
-            },
-            color: {
-              linearGradient: [0, 0, 0, 100],
-              stops: [
-                [0, "#fcc203"],
-                [1, "#00b072"]
-              ]
-            },
-        animation:false,
-        name: '',
-        allowPointSelect: true,
-        data: [Math.random() * 10, Math.random() * 10, Math.random() * 10]            
-    }]
-  }
   return (
     <div className="container mt-5">
       <div className="row">
@@ -219,39 +69,22 @@ const Index = () => {
           </ul>
         </div>
         <div className="col-md-9">
-          <h3>Single Line Series</h3>
-          <HighchartsReact
-            highcharts={Highcharts}
-            options={optionsSingleLine}
-          />
-          <hr />
-          <h3>Mini Chart</h3>
-          <span>
-            <span style={{display:"inline-block"}}>
-              <div>D05</div>
-              <div>DBS Group Holdings</div>
-              <div>3.8% 0.990</div>
-            </span>
-            <span className="mini-container" style={{display:"inline-block"}}>
-              <HighchartsReact
-                highcharts={Highcharts}
-                options={optionsMiniChart}
-                />
-            </span>
-          </span>
-          <hr/>
-          <h3>Vertical Bar Chart</h3>
-            <HighchartsReact
-              highcharts={Highcharts}
-              options={VerticalBarChart}
-            />
-          <hr/>
-          <h3>Candle Stick</h3>
+
+          {/* <LineChart data={dataSingleLine} /> */}
+
+          {/* <MiniChart data={dataSingleLine} /> */}
+
+          {/* <VerticalBarChart data={dataVerticalBar} category={categoryVerticalBar} /> */}
+
+          <StockChart data={dataSingleLine} />
+          
+          <CandleStickStockChart data={dataCandleStick} />
+
+          {/* <h3>Candle Stick</h3>
           <HighchartsReact
             highcharts={Highcharts}
             options={optionsCandleStick}
-          />
-          
+          /> */}
         </div>
       </div>
       <style jsx>{`
@@ -259,5 +92,15 @@ const Index = () => {
     </div>
   );
 };
+
+// Index.getInitialProps = async (ctx) => {
+//   let ngrokUrl = "http://9e65834c11af.ngrok.io/"
+//   let res = await fetch(ngrokUrl + '/stockPrice?stock_code=0001')
+//   let json = await res.json()
+
+//   let res2 = await fetch(ngrokUrl + '/stockPrice/bar')
+//   let json2 = await res2.json()
+//   return { dataSingleLine: json.data, dataVerticalBar: json2.data.data, categoryVerticalBar: json2.data.categories }
+// }
 
 export default Index;

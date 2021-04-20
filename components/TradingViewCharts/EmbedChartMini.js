@@ -8,21 +8,20 @@ class EmbedChart extends Component {
   
     componentDidMount() {
       const script = document.createElement('script');
-      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js'
+      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js'
       script.async = false;
       script.innerHTML = JSON.stringify({
-        "width": 980,
-        "height": 610,
-        "container_id": "tradingview_cb83d",
-        "symbol": "BINANCE:BTCUSDT",
-        "interval": "D",
-        "timezone": "Etc/UTC",
-        "theme": "light",
-        "style": "1",
+        "symbol": "FX:EURUSD",
+        "width": 350,
+        "height": 220,
         "locale": "en",
-        "toolbar_bg": "#f1f3f6",
-        "enable_publishing": false,
-        "allow_symbol_change": true
+        "dateRange": "12M",
+        "colorTheme": "light",
+        "trendLineColor": "#37a6ef",
+        "underLineColor": "#E3F2FD",
+        "isTransparent": false,
+        "autosize": false,
+        "largeChartUrl": ""
       })
       this.myRef.current.appendChild(script);
     }
@@ -30,7 +29,7 @@ class EmbedChart extends Component {
     render() {
       return(
         <div>
-<h3>Embed Chart embedded</h3>
+          <h3>Mini Chart embedded</h3>
       <div className="tradingview-widget-container" ref={this.myRef}>
           <div className="tradingview-widget-container__widget"></div>    
       </div>
@@ -38,5 +37,5 @@ class EmbedChart extends Component {
       );
     }
   }
-
-  export default EmbedChart;
+  
+  export default EmbedChart
